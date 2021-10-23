@@ -3,7 +3,7 @@ pipeline {
       stages {
           stage('PnemoniaDetectionMlops'){
               agent {
-                label 'kubernetes_master'
+                label 'kubernetesmaster'
             }
                 steps {
                     sh 'sudo kubectl create deployment pnemoniadetectpod  --image=sathya15/pneumonia_detection:v2' 
@@ -14,7 +14,7 @@ pipeline {
         }
          stage('gettingpod'){ 
              agent {
-                label 'kubernetes_master'
+                label 'kubernetesmaster'
             }
                steps {
                       sh 'sudo kubectl get pod -o wide '
